@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO 基础配置 -->
+    <title>跨境电商爆款视频生成工具 | GlobeVideo AI - TikTok商家专属</title>
+    <meta name="description"
+        content="GlobeVideo AI，跨境商家专属爆款视频生成工作流，上传产品图片即可生成专业带货视频，适配TikTok/Shopee，零门槛、高效率，助力商家抢占内容流量，现在加入Waitlist享优先体验权。">
+    <meta name="keywords"
+        content="跨境电商爆款视频生成工具, TikTok商家视频工具, 跨境视频生成工作流, TikTok爆款视频生成, 跨境视频制作成本, TikTok视频算法, 跨境视频产出效率, 跨境视频智能脚本生成, 跨境视频自动化剪辑">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="跨境电商爆款视频生成工具 | GlobeVideo AI - TikTok商家专属">
+    <meta property="og:description" content="无需外包与剪辑，上传产品图，AI自动生成适配平台算法的高转化爆款视频。">
+    <meta property="og:type" content="website">
+
+    <!-- 引入字体和 Tailwind -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 自定义高级视觉样式 -->
+    <style>
+        :root {
+            --bg-base: #000000;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --accent-glow: rgba(96, 165, 250, 0.15);
+            /* Blueish glow */
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-base);
+            color: #ffffff;
+            overflow-x: hidden;
+            letter-spacing: 0.01em;
+        }
+
+        /* 动态网格背景 */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse at top, black 10%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at top, black 10%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 环境光晕 */
+        .ambient-light {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 0%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 100% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 毛玻璃卡片 */
+        .glass-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* 渐变文字 */
+        .text-gradient {
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-primary {
+            background: linear-gradient(to right, #60A5FA, #A855F7, #60A5FA);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* 高级流光按钮 */
+        .btn-glow {
+            position: relative;
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-glow:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #fff;
+        }
+
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* 滚动进入动画 */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Bento Grid 布局适配 */
+        .bento-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        @media (min-width: 1024px) {
+            .bento-large {
+                grid-column: span 2;
+            }
+        }
+
+        /* 背景大字水印 */
+        .watermark-number {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 140px;
+            font-weight: 800;
+            line-height: 1;
+            color: rgba(255, 255, 255, 0.02);
+            pointer-events: none;
+            z-index: 0;
+            transition: color 0.5s ease;
+        }
+
+        .glass-card:hover .watermark-number {
+            color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-blue-500/30 selection:text-white">
+
+    <!-- 全局背景 -->
+    <div class="cyber-grid"></div>
+    <div class="ambient-light"></div>
+
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-8 h-8 rounded bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                </div>
+                <span class="font-semibold text-lg tracking-wide text-white/90">GlobeVideo AI</span>
+            </div>
+            <a href="#waitlist" class="btn-glow px-5 py-2 rounded-full text-sm font-medium">
+                加入内测
+            </a>
+        </div>
+    </nav>
+
+    <!-- 模块1：首屏Banner (Hero Section - Pure Typography) -->
+    <header
+        class="relative pt-48 pb-32 px-6 max-w-5xl mx-auto flex flex-col items-center text-center z-10 reveal active">
+        <!-- Badge -->
+        <div
+            class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300 mb-10 backdrop-blur-sm tracking-wide">
+            <div class="relative flex h-2 w-2">
+                <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </div>
+            GlobeVideo AI 算法内测版现已开放
+        </div>
+
+        <h1 class="text-5xl md:text-7xl lg:text-[80px] font-bold tracking-tight leading-[1.1] mb-8">
+            跨境商家的流量密码<br>
+            <span class="text-gradient-primary block mt-2">智能生成爆款工作流</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl font-normal text-gray-400 mb-8 max-w-3xl leading-relaxed">
+            告别昂贵外包与低效剪辑。上传产品图，<span class="text-white font-medium">零门槛</span>生成深度适配 TikTok / Shopee 算法的高转化带货视频。
+        </p>
+
+        <p class="text-base text-gray-500 mb-12 max-w-2xl leading-relaxed font-light">
+            基于多模态大模型与爆款流量结构解析，自动重构脚本、转场与原生配音。让每一款产品，都有机会靠内容破圈。
+        </p>
+
+        <div class="flex flex-col items-center gap-4 w-full md:w-auto">
+            <a href="#waitlist"
+                class="btn-primary w-full md:w-auto px-10 py-4 rounded-full font-semibold text-lg flex items-center justify-center gap-3">
+                加入 Waitlist 抢先体验
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+            <span class="text-sm text-gray-500 flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                留存邮箱，解锁优先体验权及爆款脚本秘籍
+            </span>
+        </div>
+    </header>
+
+    <!-- 模块2：痛点直击 (Pain Point Section - Deep Tech Style) -->
+    <section class="py-24 px-6 max-w-7xl mx-auto relative z-10 border-t border-white/5">
+        <div class="mb-20 reveal">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-gradient">跨境带货的核心困局</h2>
+            <p class="text-gray-500 max-w-2xl text-lg">在流量红利极速衰退的今天，传统视频制作模式正在成为跨境商家最大的增长瓶颈。</p>
+        </div>
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 rounded-3xl overflow-hidden border border-white/10">
+            <!-- 痛点 1 -->
+            <div class="bg-black p-10 reveal">
+                <h3 class="text-xl font-medium mb-4 text-white">制作成本高企，转化难以保障</h3>
+                <p class="text-gray-400 leading-relaxed text-sm font-light">
+                    外包剪辑单条视频动辄数百美元，沟通成本高昂，修改链路漫长；内部组建专业团队投入极大。传统TVC拍摄高昂的秒均成本让中小卖家望而却步，且重金投入未必换来对等的流量转化。
+                </p>
+            </div>
+            <!-- 痛点 2 -->
+            <div class="bg-black p-10 reveal delay-75">
+                <h3 class="text-xl font-medium mb-4 text-white">黑盒般的平台规则与爆款逻辑</h3>
+                <p class="text-gray-400 leading-relaxed text-sm font-light">
+                    TikTok 等算法平台对节奏、黄金前3秒、本地化文案要求苛刻。缺乏网感与“痛点-解决-促单”商业逻辑支撑的盲目跟风，往往导致完播率断崖式下跌，甚至触发账号限流封锁。
+                </p>
+            </div>
+            <!-- 痛点 3 -->
+            <div class="bg-black p-10 reveal">
+                <h3 class="text-xl font-medium mb-4 text-white">低效产出，错失大促引流节点</h3>
+                <p class="text-gray-400 leading-relaxed text-sm font-light">
+                    人力剪辑一条合格的带货视频至少耗时1-2天，根本无法支撑平台“高频铺量、赛马机制”的生存法则。在大促爆发期前夕，因内容供给链断裂，眼睁睁将流量拱手让予竞品。
+                </p>
+            </div>
+            <!-- 痛点 4 -->
+            <div class="bg-black p-10 reveal delay-75">
+                <h3 class="text-xl font-medium mb-4 text-white">工具准入门槛高，新手破局无门</h3>
+                <p class="text-gray-400 leading-relaxed text-sm font-light">
+                    PR/AE等专业软件学习曲线陡峭，即便手握优质产品，也无法通过粗糙的混剪、生硬的机翻字幕打动海外受众。审美降级导致品牌信任度受损，好产品被埋没于海量信息流中。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块3：核心功能介绍 (Core Function - Editorial Cards) -->
+    <section
+        class="py-32 px-6 relative z-10 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-24 reveal text-center md:text-left">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">三大核心引擎<br />重塑视频内容生产力</h2>
+                <p class="text-gray-400 max-w-xl text-lg font-light">
+                    将数十人的创意、拍摄、剪辑与投放团队，凝结为一个零门槛的高阶 AI 智能体。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- 功能 1 -->
+                <div
+                    class="glass-card p-10 rounded-3xl relative overflow-hidden reveal group flex flex-col justify-between h-full min-h-[400px]">
+                    <span class="watermark-number">01</span>
+                    <div class="relative z-10">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-blue-400">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                                <polyline points="10 9 9 9 8 9" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">智能素材解析<br />一键生成专业带货脚本</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm font-light">
+                            告别手动撰写。上传产品图片（主图/细节/场景），输入核心卖点与目标市场。AI 引擎将自动提炼痛点，并结合 TikTok
+                            爆款文案结构，生成“痛点抛出+产品展示+极限促单”的高转化脚本。<br><br>
+                            内置深度的语言大模型，不仅懂产品，更懂海外消费者的购买心理；同时支持爆款链接反向解析，一键复刻竞品流量密码。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 功能 2 -->
+                <div
+                    class="glass-card p-10 rounded-3xl relative overflow-hidden reveal delay-100 group flex flex-col justify-between h-full min-h-[400px]">
+                    <span class="watermark-number">02</span>
+                    <div class="relative z-10">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-purple-400">
+                                <path d="M2 12h4l3-9 5 18 3-9h5" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">全自动化渲染<br />视听质感一键拉满</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm font-light">
+                            摆脱传统模板库的僵硬感。系统自动匹配品类与区域偏好的爆款 BGM、原生质感 AI 配音与网感转场特效。<br><br>
+                            基于领先的视频扩散模型底座，精准控制每一帧的画面律动，使静态图片焕发流畅动态。无论竖屏横屏，智能剪裁与超分辨率重构技术确保输出画质达到专业后期团队标准。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 功能 3 -->
+                <div
+                    class="glass-card p-10 rounded-3xl relative overflow-hidden reveal delay-200 group flex flex-col justify-between h-full min-h-[400px]">
+                    <span class="watermark-number">03</span>
+                    <div class="relative z-10">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-green-400">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 16 16 12 12 8" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">平台算法深配<br />精准卡位流量池红利</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm font-light">
+                            内置全网各大平台最新的推荐算法参数体系。从视频的黄金前三秒吸睛点设计，到自动生成高权重的视频标题、封面及 HashTags。<br><br>
+                            根据欧美“直给式”与东南亚“沉浸式”等不同区域用户喜好自动调节视觉表现，极大拉升完播率与互动率指标，帮您的视频获得系统初级流量池破圈推荐。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块4：适用场景 (Scenario Section - Bento Layout) -->
+    <section class="py-24 px-6 max-w-7xl mx-auto relative z-10">
+        <div class="mb-16 reveal">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white">全业务场景无缝覆盖</h2>
+            <p class="text-gray-500 max-w-2xl text-lg font-light">不仅是工具，更是适应出海全生命周期的商业解决方案。</p>
+        </div>
+
+        <div class="bento-grid">
+            <div class="glass-card p-10 rounded-3xl bento-large reveal">
+                <h3 class="text-xl font-medium text-white mb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span> 新品海量铺量种草
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">
+                    新品冷启动期，一键裂变生成数十条不同维度的短视频实现全矩阵快速铺量。全方位展示核心卖点，以极低成本获取初始播放测试与用户反馈，快速跑出潜力品并为后续大规模投流奠定数据基础。完美适配
+                    3C数码、服饰、美妆等多 SKU 品类。
+                </p>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl reveal delay-75">
+                <h3 class="text-xl font-medium text-white mb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-purple-400"></span> 核心爆款无限打磨
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">
+                    针对已验证的核心商品，AI 自动生成多风格、多机位感的高精度视频版本。持续优化视觉节奏与话术，延长爆款生命周期。
+                </p>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl reveal">
+                <h3 class="text-xl font-medium text-white mb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-red-400"></span> 大促节点抢量预热
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">
+                    在黑五、圣诞、Prime Day 等流量内卷节点，批量生成附带限时折扣、秒杀氛围的专属预热视频，提前截流，锁定消费者关注。
+                </p>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl reveal delay-75">
+                <h3 class="text-xl font-medium text-white mb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-orange-400"></span> 品牌长效账号养护
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">
+                    维持账号高活跃度是获取平台自然流的关键。利用 AI 实现“日更”，积累垂直权重与精准粉丝，沉淀品牌私域流量资产。
+                </p>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl bento-large reveal delay-150">
+                <h3 class="text-xl font-medium text-white mb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-green-400"></span> 低成本替代买量素材
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">
+                    广告投手不再受限于视频产能。产出的专业级高转化视频直接作为信息流广告素材使用，大幅降低素材制作硬成本，提升 ROAS 投产比。让中小卖家也能以顶级大卖的内容质量参与流量池竞价。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块5：Waitlist留资模块 (Conversion Section) -->
+    <section id="waitlist" class="py-32 px-6 relative z-10">
+        <div
+            class="max-w-4xl mx-auto glass-card rounded-[40px] p-10 md:p-16 relative overflow-hidden reveal border border-white/10">
+            <!-- 强光点缀 -->
+            <div
+                class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none">
+            </div>
+
+            <div class="relative z-10 text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">抢先接入流量新纪元</h2>
+                <p class="text-gray-400 text-lg">GlobeVideo AI 目前处于封闭内测阶段，名额有限。<br />加入 Waitlist，快人一步获取跨境内容生产的破局点。</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 relative z-10">
+                <div class="lg:col-span-2 flex flex-col justify-center">
+                    <h4 class="text-sm font-semibold text-white/60 uppercase tracking-widest mb-6">专属内测特权</h4>
+                    <ul class="space-y-6 text-sm text-gray-300">
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="text-blue-400 text-xs">01</span>
+                            </div>
+                            <span class="font-light leading-relaxed">优先解锁全套 AI 爆款生成工具矩阵。</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-6 h-6 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="text-purple-400 text-xs">02</span>
+                            </div>
+                            <span class="font-light leading-relaxed">内测期专享视频生成时长 <strong
+                                    class="text-white font-medium">全额豁免</strong>。</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-6 h-6 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="text-green-400 text-xs">03</span>
+                            </div>
+                            <span class="font-light leading-relaxed">免费获赠官方编译《2026跨境视频爆单底层逻辑与脚本库》。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 留资表单 -->
+                <form id="waitlistForm"
+                    class="lg:col-span-3 space-y-5 bg-white/[0.03] p-8 rounded-3xl border border-white/[0.05] backdrop-blur-md">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 mb-2 ml-1">工作邮箱地址 *</label>
+                        <input type="email" required placeholder="name@company.com"
+                            class="w-full bg-black/50 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all font-light">
+                    </div>
+                    <div class="grid grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-2 ml-1">主营目标平台</label>
+                            <select
+                                class="w-full bg-black/50 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 transition-all appearance-none font-light cursor-pointer">
+                                <option value="" class="bg-gray-900 text-gray-500">选择平台</option>
+                                <option value="tiktok" class="bg-gray-900">TikTok</option>
+                                <option value="shopee" class="bg-gray-900">Shopee</option>
+                                <option value="amazon" class="bg-gray-900">Amazon</option>
+                                <option value="other" class="bg-gray-900">其他平台</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-2 ml-1">主营商品类目</label>
+                            <select
+                                class="w-full bg-black/50 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 transition-all appearance-none font-light cursor-pointer">
+                                <option value="" class="bg-gray-900 text-gray-500">选择类目</option>
+                                <option value="3c" class="bg-gray-900">3C数码智能</option>
+                                <option value="home" class="bg-gray-900">家居百货生活</option>
+                                <option value="fashion" class="bg-gray-900">服饰鞋包美妆</option>
+                                <option value="outdoor" class="bg-gray-900">户外及其他</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="btn-primary w-full mt-4 py-4 rounded-2xl font-semibold text-base flex justify-center items-center gap-2">
+                        加入 Waitlist 列表
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </button>
+                    <p class="text-[11px] text-center text-gray-600 mt-4 font-light">您的信息将被严格加密，且仅用于产品内测通知邀请。</p>
+
+                    <!-- 成功提示 -->
+                    <div id="successMsg"
+                        class="hidden mt-4 p-4 bg-green-500/10 border border-green-500/20 rounded-2xl text-green-400 text-sm text-center flex items-center justify-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        申请提交成功，我们将尽快与您取得联系。
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块6：底部信息 (Footer) -->
+    <footer class="py-12 px-6 border-t border-white/5 relative z-10 bg-black">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div
+                    class="font-semibold text-white/90 text-lg mb-2 flex items-center justify-center md:justify-start gap-2">
+                    GlobeVideo AI
+                    <span
+                        class="text-xs px-2 py-0.5 rounded border border-white/10 bg-white/5 text-gray-400 font-normal">Beta</span>
+                </div>
+                <p class="text-sm text-gray-500 font-light">专注重塑跨境电商视频内容生产范式</p>
+            </div>
+            <div class="text-center md:text-right text-xs text-gray-600 space-y-3 font-light">
+                <p class="hover:text-gray-400 transition-colors cursor-pointer">商务合作与咨询：waitlist@globevideo.ai</p>
+                <p>免责声明：产品正处于封闭研发打磨期，页面描述特性均以最终上线版本为准。</p>
+                <p>&copy; 2026 GlobeVideo AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 交互脚本 -->
+    <script>
+        // 滚动动画 (Reveal on scroll)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // 表单交互模拟
+        document.getElementById('waitlistForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+
+            btn.innerHTML = '正在处理数据...';
+            btn.style.opacity = '0.5';
+            btn.disabled = true;
+
+            // 模拟网络请求
+            setTimeout(() => {
+                btn.style.display = 'none';
+                document.getElementById('successMsg').classList.remove('hidden');
+            }, 1200);
+        });
+    </script>
+</body>
+
+</html>
