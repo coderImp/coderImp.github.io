@@ -283,14 +283,14 @@
             <div class="bg-black p-10 reveal delay-75">
                 <h3 class="text-xl font-medium mb-4 text-white">黑盒般的平台规则与爆款逻辑</h3>
                 <p class="text-gray-400 leading-relaxed text-sm font-light">
-                    TikTok 等算法平台对节奏、黄金前3秒、本地化文案要求苛刻。缺乏网感与“痛点-解决-促单”商业逻辑支撑的盲目跟风，往往导致完播率断崖式下跌，甚至触发账号限流封锁。
+                    TikTok 等算法平台对节奏、黄金前3秒、本地化文案要求苛刻。缺乏网感与"痛点-解决-促单"商业逻辑支撑的盲目跟风，往往导致完播率断崖式下跌，甚至触发账号限流封锁。
                 </p>
             </div>
             <!-- 痛点 3 -->
             <div class="bg-black p-10 reveal">
                 <h3 class="text-xl font-medium mb-4 text-white">低效产出，错失大促引流节点</h3>
                 <p class="text-gray-400 leading-relaxed text-sm font-light">
-                    人力剪辑一条合格的带货视频至少耗时1-2天，根本无法支撑平台“高频铺量、赛马机制”的生存法则。在大促爆发期前夕，因内容供给链断裂，眼睁睁将流量拱手让予竞品。
+                    人力剪辑一条合格的带货视频至少耗时1-2天，根本无法支撑平台"高频铺量、赛马机制"的生存法则。在大促爆发期前夕，因内容供给链断裂，眼睁睁将流量拱手让予竞品。
                 </p>
             </div>
             <!-- 痛点 4 -->
@@ -334,7 +334,7 @@
                         <h3 class="text-2xl font-bold mb-4 text-white">智能素材解析<br />一键生成专业带货脚本</h3>
                         <p class="text-gray-400 leading-relaxed text-sm font-light">
                             告别手动撰写。上传产品图片（主图/细节/场景），输入核心卖点与目标市场。AI 引擎将自动提炼痛点，并结合 TikTok
-                            爆款文案结构，生成“痛点抛出+产品展示+极限促单”的高转化脚本。<br><br>
+                            爆款文案结构，生成"痛点抛出+产品展示+极限促单"的高转化脚本。<br><br>
                             内置深度的语言大模型，不仅懂产品，更懂海外消费者的购买心理；同时支持爆款链接反向解析，一键复刻竞品流量密码。
                         </p>
                     </div>
@@ -377,7 +377,7 @@
                         <h3 class="text-2xl font-bold mb-4 text-white">平台算法深配<br />精准卡位流量池红利</h3>
                         <p class="text-gray-400 leading-relaxed text-sm font-light">
                             内置全网各大平台最新的推荐算法参数体系。从视频的黄金前三秒吸睛点设计，到自动生成高权重的视频标题、封面及 HashTags。<br><br>
-                            根据欧美“直给式”与东南亚“沉浸式”等不同区域用户喜好自动调节视觉表现，极大拉升完播率与互动率指标，帮您的视频获得系统初级流量池破圈推荐。
+                            根据欧美"直给式"与东南亚"沉浸式"等不同区域用户喜好自动调节视觉表现，极大拉升完播率与互动率指标，帮您的视频获得系统初级流量池破圈推荐。
                         </p>
                     </div>
                 </div>
@@ -426,7 +426,7 @@
                     <span class="w-2 h-2 rounded-full bg-orange-400"></span> 品牌长效账号养护
                 </h3>
                 <p class="text-gray-400 text-sm leading-relaxed font-light">
-                    维持账号高活跃度是获取平台自然流的关键。利用 AI 实现“日更”，积累垂直权重与精准粉丝，沉淀品牌私域流量资产。
+                    维持账号高活跃度是获取平台自然流的关键。利用 AI 实现"日更"，积累垂直权重与精准粉丝，沉淀品牌私域流量资产。
                 </p>
             </div>
 
@@ -488,17 +488,19 @@
                 </div>
 
                 <!-- 留资表单 -->
-                <form id="waitlistForm"
+                <form id="waitlistForm" action="https://formspree.io/f/xrejgdey" method="POST"
                     class="lg:col-span-3 space-y-5 bg-white/[0.03] p-8 rounded-3xl border border-white/[0.05] backdrop-blur-md">
+                    <input type="text" name="_gotcha" style="display:none" />
+                    <input type="hidden" name="_subject" value="新的Waitlist申请 - GlobeVideo AI" />
                     <div>
                         <label class="block text-xs font-medium text-gray-400 mb-2 ml-1">工作邮箱地址 *</label>
-                        <input type="email" required placeholder="name@company.com"
+                        <input type="email" name="email" required placeholder="name@company.com"
                             class="w-full bg-black/50 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all font-light">
                     </div>
                     <div class="grid grid-cols-2 gap-5">
                         <div>
                             <label class="block text-xs font-medium text-gray-400 mb-2 ml-1">主营目标平台</label>
-                            <select
+                            <select name="platform"
                                 class="w-full bg-black/50 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 transition-all appearance-none font-light cursor-pointer">
                                 <option value="" class="bg-gray-900 text-gray-500">选择平台</option>
                                 <option value="tiktok" class="bg-gray-900">TikTok</option>
@@ -509,7 +511,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-medium text-gray-400 mb-2 ml-1">主营商品类目</label>
-                            <select
+                            <select name="category"
                                 class="w-full bg-black/50 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 transition-all appearance-none font-light cursor-pointer">
                                 <option value="" class="bg-gray-900 text-gray-500">选择类目</option>
                                 <option value="3c" class="bg-gray-900">3C数码智能</option>
@@ -540,6 +542,18 @@
                             <polyline points="22 4 12 14.01 9 11.01" />
                         </svg>
                         申请提交成功，我们将尽快与您取得联系。
+                    </div>
+
+                    <!-- 错误提示 -->
+                    <div id="errorMsg"
+                        class="hidden mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 text-sm text-center flex items-center justify-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="15" y1="9" x2="9" y2="15" />
+                            <line x1="9" y1="9" x2="15" y2="15" />
+                        </svg>
+                        提交失败，请稍后重试或联系客服。
                     </div>
                 </form>
             </div>
@@ -588,21 +602,22 @@
             observer.observe(el);
         });
 
-        // 表单交互模拟
+        // 表单交互
         document.getElementById('waitlistForm').addEventListener('submit', function (e) {
-            e.preventDefault();
             const btn = this.querySelector('button[type="submit"]');
 
             btn.innerHTML = '正在处理数据...';
             btn.style.opacity = '0.5';
             btn.disabled = true;
-
-            // 模拟网络请求
-            setTimeout(() => {
-                btn.style.display = 'none';
-                document.getElementById('successMsg').classList.remove('hidden');
-            }, 1200);
         });
+
+        // 检查URL中是否有Formspree的成功参数
+        if (window.location.search.includes('success')) {
+            const form = document.getElementById('waitlistForm');
+            const btn = form.querySelector('button[type="submit"]');
+            btn.style.display = 'none';
+            document.getElementById('successMsg').classList.remove('hidden');
+        }
     </script>
 </body>
 
